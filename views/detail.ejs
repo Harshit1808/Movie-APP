@@ -1,0 +1,27 @@
+<%- include("./partials/header")%>
+
+<style>
+    h1 {
+        font-style: italic;
+    }
+</style>  
+<div class="container">
+    <%if(data.Rated==='PG-13'){%>
+    <div class="alert alert-warning" role="alert">
+       Watch with your parents
+       </div>
+       <%}%>
+     
+    <h1><%=data.Title%></h1>
+    <p><%=data.Plot%></p>
+    <h3>Movie Ratings</h3>
+    <ul>
+        <%data['Ratings'].forEach(function(rating){%>
+            <li> <%=rating.Source%> - <%=rating.Value%></li>
+        <%})%>
+    </ul>
+    <h3>Actors : <i><%=data.Actors%></i></h3>
+    <h3>Genre : <%=data.Genre%></h3>
+</div>
+
+<%- include("./partials/footer")%>
